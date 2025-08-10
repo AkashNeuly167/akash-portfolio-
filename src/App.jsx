@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Homepage from "./pages/Homepage";
-import Aboutpage from "./pages/Aboutpage";
-import Projectpage from "./pages/ProjectPage";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ProjectPage from "./pages/ProjectPage";
 import ContactPage from "./pages/ContactPage";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -16,9 +16,9 @@ function App() {
       <Navbar />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<Aboutpage />} />
-        <Route path="/project" element={<Projectpage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/project" element={<ProjectPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </>
