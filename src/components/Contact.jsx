@@ -17,10 +17,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        'service_kfjl1ak',
-        'template_qh379nr',
+       import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        '4jK-Xk3oyP7kg78oZ'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -40,7 +40,7 @@ const Contact = () => {
       id="contact"
       className="pt-32 pb-20 px-6 md:px-20 bg-[#1a1a1a] text-white"
     >
-      <Toaster position="top-center" />
+     
 
       {/* Section heading */}
       <motion.div
@@ -144,13 +144,16 @@ const Contact = () => {
               <h3 className="text-lg text-white whitespace-nowrap">Social</h3>
               <div className="w-10 h-1 bg-gray-600"></div>
               <div className="flex gap-4 text-2xl text-white">
-                <a href="#" className="hover:text-orange-500 transition">
+                <a href="https://www.linkedin.com/in/akash-neuly-45595b277/" 
+                target='_blank' className="hover:text-orange-500 transition">
                   <FaLinkedin />
                 </a>
-                <a href="#" className="hover:text-orange-500 transition">
+                <a href="https://github.com/AkashNeuly167"
+                target='_blank' className="hover:text-orange-500 transition">
                   <FaGithub />
                 </a>
-                <a href="#" className="hover:text-orange-500 transition">
+                <a href="https://wa.me/916395996120"
+                target='_blank' className="hover:text-orange-500 transition">
                   <FaWhatsapp />
                 </a>
               </div>
