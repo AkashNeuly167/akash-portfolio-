@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="md:hidden pr-2"> {/* Added pr-2 so it’s not sticking to edge */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300"
+            className="p-2 rounded-md border border-none text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300"
           >
             {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
           </button>
