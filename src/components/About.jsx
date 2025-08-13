@@ -81,7 +81,10 @@ const About = () => {
           </div>
 
           {/* Resume Button */}
-          <a href="/public/Akash_Neuly.pdf" download>
+          <a href="/Aakash_Neuly.pdf"
+           download
+           target='_blank'
+           rel="noopener noreferrer">
             <motion.button
               className="primary-button mt-4"
               whileHover={{ scale: 1.05 }}
