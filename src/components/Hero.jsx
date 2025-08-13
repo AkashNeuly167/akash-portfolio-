@@ -40,7 +40,7 @@ const Hero = () => {
           Currently expanding my skills in the MERN stack and exploring cloud technologies.
         </p>
         <div className="flex gap-4">
-          <a href="/Akash_Resume.pdf" download>
+          <a href="/Aakash_Neuly.pdf" download>
             <button className="primary-button">
               <span>My Resume</span>
               <span><FaDownload /></span>
