@@ -81,7 +81,7 @@ const About = () => {
           </div>
 
           {/* Resume Button */}
-          <a href="/Akash_Resume.pdf" download>
+          <a href="/public/Akash_Neuly.pdf" download>
             <motion.button
               className="primary-button mt-4"
               whileHover={{ scale: 1.05 }}
