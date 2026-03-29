@@ -81,7 +81,7 @@ const About = () => {
           </div>
 
           {/* Resume Button */}
-          <a href="/Aakash_Neuly.pdf"
+          <a href="/Akash Neuly Resume (1).pdf"
            download
            target='_blank'
            rel="noopener noreferrer">

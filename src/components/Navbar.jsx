@@ -33,7 +33,7 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden pr-2"> {/* Added pr-2 so it’s not sticking to edge */}
+        <div className="md:hidden pr-2"> {/* Added pr-2 so it's not sticking to edge */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-md border border-none text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300"
