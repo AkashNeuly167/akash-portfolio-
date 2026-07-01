@@ -36,7 +36,7 @@ const Navbar = () => {
           ))}
 
           <a
-            href="/Akash neuly Resume (3).pdf"
+            href="/AkashNeuly Resume.pdf"
             download
             className="flex items-center gap-2 rounded-full border border-orange-500/40 px-4 py-2 text-sm font-semibold text-orange-500 transition hover:-translate-y-1 hover:bg-orange-500 hover:text-white"
           >
