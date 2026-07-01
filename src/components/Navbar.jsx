@@ -70,7 +70,7 @@ const Navbar = () => {
           ))}
 
           <a
-            href="/Akash neuly Resume (3).pdf"
+            href="/AkashNeuly Resume.pdf"
             download
             onClick={closeMenu}
             className="flex w-fit items-center gap-2 rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white"
