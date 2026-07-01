@@ -1,68 +1,86 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
+import { Menu, X, Download } from "lucide-react";
 
-export default function Navbar() {
+const navLinks = [
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-gray-800 text-white px-6 py-4 z-50 shadow-md">
-      <div className="flex items-center justify-between max-w-7xl mx-auto">
-        
-        {/* Logo */}
-        <div className="text-lg sm:text-xl font-extrabold tracking-wide">
-          <NavLink to="/" className=" text-orange-400 hover:text-white transition-colors duration-300"
-          >
-            𝐀𝐤𝐚𝐬𝐡 𝐍𝐞𝐮𝐥𝐲
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#09090B]/75 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a
+          href="#"
+          onClick={closeMenu}
+          className="text-lg font-extrabold tracking-[0.2em] text-white"
+        >
+          AKASH<span className="text-orange-500">.</span>
+        </a>
 
-          </NavLink>
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-sm font-medium">
-          {["Home", "About", "Project", "Contact"].map((item) => (
-            <li key={item}>
-              <NavLink
-                to={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
-                className="hover:text-orange-400 transition-colors duration-300"
-              >
-                {item}
-              </NavLink>
-            </li>
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="relative text-sm font-medium text-zinc-400 transition hover:text-white after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:w-0 after:bg-orange-500 after:transition-all hover:after:w-full"
+            >
+              {link.name}
+            </a>
           ))}
-        </ul>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden pr-2"> {/* Added pr-2 so it's not sticking to edge */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md border border-none text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300"
+          <a
+            href="/Akash neuly Resume (3).pdf"
+            download
+            className="flex items-center gap-2 rounded-full border border-orange-500/40 px-4 py-2 text-sm font-semibold text-orange-500 transition hover:-translate-y-1 hover:bg-orange-500 hover:text-white"
           >
-            {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
-          </button>
+            Resume <Download size={16} />
+          </a>
         </div>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="rounded-xl border border-white/10 p-2 text-white transition hover:border-orange-500 hover:text-orange-500 md:hidden"
+        >
+          {isOpen ? <X size={21} /> : <Menu size={21} />}
+        </button>
       </div>
 
-      {/* Mobile Dropdown */}
       <div
-        className={`md:hidden bg-gray-800 border-t border-gray-700 overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-60" : "max-h-0"
+        className={`overflow-hidden border-t border-white/10 bg-[#09090B] transition-all duration-300 md:hidden ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col items-center py-4 space-y-4 text-sm">
-          {["Home", "About", "Project", "Contact"].map((item) => (
-            <li key={item}>
-              <NavLink
-                to={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
-                className="hover:text-orange-400 transition-colors duration-300"
-                onClick={() => setIsOpen(false)}
-              >
-                {item}
-              </NavLink>
-            </li>
+        <div className="flex flex-col gap-5 px-6 py-5">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={closeMenu}
+              className="text-zinc-300 transition hover:text-orange-500"
+            >
+              {link.name}
+            </a>
           ))}
-        </ul>
+
+          <a
+            href="/Akash neuly Resume (3).pdf"
+            download
+            onClick={closeMenu}
+            className="flex w-fit items-center gap-2 rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white"
+          >
+            Resume <Download size={16} />
+          </a>
+        </div>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

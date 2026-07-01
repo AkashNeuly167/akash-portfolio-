@@ -1,99 +1,83 @@
-import React from "react";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
-import {
-  FaHtml5, FaCss3Alt, FaNodeJs, FaReact, FaGithub
-} from "react-icons/fa";
-import {
-  SiJavascript, SiTailwindcss, SiExpress, SiMongodb, SiAdobephotoshop, SiFirebase
-} from "react-icons/si";
-import Lottie from "lottie-react";
-import man from "../assets/man.json";
+import { motion as Motion } from "framer-motion";
+import { Code2, Server, Database, Wrench } from "lucide-react";
 
-const SkillSection = ({ title, items }) => (
-  <motion.div
-    className="mb-6"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-  >
-    <h3 className="text-cyan-400 text-lg font-semibold mb-3">{title}</h3>
-    <div className="flex gap-4 flex-wrap">
-      {items.map(({ title, icon }) => (
-        <div
-          key={title}
-          className="bg-[#2a2a2a] rounded-md w-12 h-12 flex items-center justify-center shadow-md 
-             cursor-pointer transform transition-transform duration-300 
-             hover:-translate-y-2 hover:shadow-xl"
-          title={title}
-        >
-          <span className="text-3xl">{icon}</span>
-        </div>
-      ))}
-    </div>
-  </motion.div>
-);
+const skillGroups = [
+  {
+    title: "Frontend",
+    icon: <Code2 size={22} />,
+    skills: ["React", "Vite", "Tailwind", "Redux", "Router", "Axios"],
+  },
+  {
+    title: "Backend",
+    icon: <Server size={22} />,
+    skills: ["Node.js", "Express", "REST APIs", "JWT", "Swagger"],
+  },
+  {
+    title: "Database & Cloud",
+    icon: <Database size={22} />,
+    skills: ["MongoDB", "Mongoose", "Cloudinary", "Firebase"],
+  },
+  {
+    title: "Tools",
+    icon: <Wrench size={22} />,
+    skills: ["Git", "GitHub", "Postman", "VS Code", "Vercel", "Render"],
+  },
+];
 
 const MySkill = () => {
-  const skills = {
-    languages: [
-      { title: "HTML", icon: <FaHtml5 className="text-orange-600" /> },
-      { title: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-      { title: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
-      { title: "NodeJS", icon: <FaNodeJs className="text-green-600" /> },
-    ],
-    frameworks: [
-      { title: "React", icon: <FaReact className="text-cyan-400" /> },
-      { title: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
-      { title: "ExpressJS", icon: <SiExpress className="text-gray-400" /> },
-    ],
-    tools: [
-      { title: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-      { title: "GitHub", icon: <FaGithub className="text-white" /> },
-      { title: "Firebase", icon: <SiFirebase className="text-yellow-400" /> },
-      { title: "Photoshop", icon: <SiAdobephotoshop className="text-cyan-800" /> },
-    ],
-  };
-
   return (
-    <section className="bg-[#1a1a1a] py-20 text-white">
-      {/* Title */}
-      <motion.h2
-        className="text-center text-3xl font-bold mb-10"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        My <span className="text-orange-500">Skills</span>
-      </motion.h2>
-
-      {/* Skills + Animation */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 px-6">
-        
-        {/* Skills */}
-        <div className="w-full md:w-1/2 flex flex-col items-start md:pr-10">
-          <SkillSection title="Languages:" items={skills.languages} />
-          <SkillSection title="Library & Frameworks:" items={skills.frameworks} />
-          <SkillSection title="Tools & Technologies:" items={skills.tools} />
-        </div>
-
-        {/* Lottie Animation */}
-        <motion.div
-          className="w-full md:w-1/2 flex justify-center"
-          initial={{ opacity: 0, y: 40 }}
+    <section id="skills" className="bg-[#09090B] px-6 py-20 text-white scroll-mt-20 ">
+      <div className="mx-auto max-w-6xl">
+        <Motion.div
+          className="mb-12 text-center"
+          initial={{ opacity: 0, y: 70 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          viewport={{ once: true, amount: 0.35 }}
         >
-          <Lottie
-            animationData={man}
-            loop
-            autoplay
-            style={{ width: "100%", maxWidth: "500px" }}
-          />
-        </motion.div>
+          <p className="text-sm font-medium text-orange-400">Tech Stack</p>
+          <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">
+            Skills & <span className="text-orange-500">Tools</span>
+          </h2>
+        </Motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {skillGroups.map((group, index) => (
+            <Motion.div
+              key={group.title}
+              className="rounded-3xl border border-white/10 bg-[#18181B] p-6 text-left transition hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10"
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.12,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true, amount: 0.35 }}
+              whileHover={{ y: -8 }}
+            >
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-400">
+                {group.icon}
+              </div>
+
+              <h3 className="mb-4 text-xl font-bold">{group.title}</h3>
+
+              <div className="grid grid-cols-2 gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-center text-xs text-zinc-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </Motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

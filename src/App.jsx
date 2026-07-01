@@ -1,28 +1,28 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ProjectPage from "./pages/ProjectPage";
-import ContactPage from "./pages/ContactPage";
-import ScrollToTop from "./components/ScrollToTop";
-
+import Hero from "./components/Hero";
+import About from "./components/About";
+import MySkill from "./components/MySkill";
+import Project from "./components/Project";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import FeaturedProject from "./components/FeaturedProject";
 
 
 function App() {
   return (
-    <>
-      
+    <main className="min-h-screen bg-[#09090B] text-white overflow-x-hidden">
       <Navbar />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/project" element={<ProjectPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-    </>
+      <Hero />
+      <About />
+      <MySkill />
+      <FeaturedProject />
+      <Project />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
+  
+
 
 export default App;
